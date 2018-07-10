@@ -12,7 +12,8 @@ class Album extends Component {
 		this.state = {
 			album: album,
 			currentSong: album.songs[0],
-			isPlaying: false
+			isPlaying: false,
+			isHovered: album.songs[0]
 		};
 
 		this.audioElement = document.createElement('audio');
@@ -44,8 +45,10 @@ class Album extends Component {
 		}
 	}
 
-	showPlayButton() {
-		
+	showPlayButton(song) {
+		if(this.state.isHovered === song) {
+			<span className="icon ion-md-play"></span>
+		}
 	}
 
 
@@ -71,10 +74,9 @@ class Album extends Component {
          			<tbody>
          			{
          				this.state.album.songs.map( (song, index) =>
-							 <tr className="song" key={index} onClick={() => this.handleSongClick(song)}>
-							 	<td>{index + 1}<span onMouseEnter={} className="icon ion-md-play"></span></td>
-
-							 	<td>{song.title}</td>
+							 <tr className="song" key={index} onClick={() => this.handleSongClick(song)} onMouseEnter{ () => showPlayButton(song)}>
+							 	<td>{index + 1}</td>
+								<td>{song.title}</td>
 							 	<td>{song.duration}</td>
 							 </tr>
 
