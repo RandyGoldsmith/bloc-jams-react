@@ -39,6 +39,7 @@ class Album extends Component {
 		if (this.state.isPlaying && isSameSong) {
 			this.pause();
 		} else {
+			if (!isSameSong) { this.setSong(song); }
 			this.play();
 		}
 	}
