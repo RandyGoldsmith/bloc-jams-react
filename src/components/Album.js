@@ -52,9 +52,10 @@ class Album extends Component {
 	}
 
 	showButtons(song) {
-		 if () {
-		 	
-			return <span className="icon ion-md-play"></span>;
+		 if (this.state.currentlyHoveredSong === song || (this.state.isPlaying === false && this.state.currentlyHoveredSong === song)) {
+		 	return <span className="icon ion-md-play"></span>;
+		} else if(this.state.currentlyHoveredSong === song && this.state.isPlaying === true) {
+			return <span className="icon ion-md-pause"></span>;
 		}
 	}
 
