@@ -13,7 +13,7 @@ class Album extends Component {
 			album: album,
 			currentSong: album.songs[0],
 			isPlaying: false,
-			isHovered: false
+			currentlyHoveredSong: null
 		};
 
 		this.audioElement = document.createElement('audio');
@@ -35,6 +35,12 @@ class Album extends Component {
 		this.setState({ currentSong: song });
 	}
 
+
+
+	setHoveredSong(song) {
+		this.setState({ currentlyHoveredSong: song });
+	}
+
 	handleSongClick(song) {
 		const isSameSong = this.state.currentSong === song;
 		if (this.state.isPlaying && isSameSong) {
@@ -48,12 +54,11 @@ class Album extends Component {
 	showButtons(song, index) {
 		 if (this.state.currentSong === song && !this.state.isPlaying) {
 		 	this.setState({ isHovered: true });
-			return <span className="icon ion-md-pause"></span>;
-
+			return <span className="icon ion-md-play"></span>;
 		}
 	}
 
-	
+
 
 
 	render() {
@@ -77,7 +82,7 @@ class Album extends Component {
          			{
          				this.state.album.songs.map( (song, index) =>
 							 <tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
-							 	<td>{index + 1}</td>
+							 	<td onMouseEnter={() => setHoveredSong(song)}>{index + 1}</td>
 								<td>{song.title}</td>
 							 	<td>{song.duration}</td>
 							 </tr>
