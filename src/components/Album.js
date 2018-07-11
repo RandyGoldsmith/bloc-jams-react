@@ -51,9 +51,9 @@ class Album extends Component {
 		}
 	}
 
-	showButtons(song, index) {
-		 if (this.state.currentSong === song && !this.state.isPlaying) {
-		 	this.setState({ isHovered: true });
+	showButtons(song) {
+		 if () {
+		 	
 			return <span className="icon ion-md-play"></span>;
 		}
 	}
@@ -82,7 +82,7 @@ class Album extends Component {
          			{
          				this.state.album.songs.map( (song, index) =>
 							 <tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
-							 	<td onMouseEnter={() => setHoveredSong(song)}>{index + 1}</td>
+							 	<td onMouseEnter={() => this.setHoveredSong(song)}>{index + 1}</td>
 								<td>{song.title}</td>
 							 	<td>{song.duration}</td>
 							 </tr>
