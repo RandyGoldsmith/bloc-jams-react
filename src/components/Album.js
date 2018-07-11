@@ -42,7 +42,7 @@ class Album extends Component {
 	}
 
 	setNotHoveredSong(song) {
-		this.setState({ currentlyHoveredSong: null})
+		this.setState({ currentlyHoveredSong: null});
 	}
 
 	handleSongClick(song) {
