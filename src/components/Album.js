@@ -61,6 +61,11 @@ class Album extends Component {
 		}
 	}
 
+	hideButtons(song, index) {
+		if (!this.state.currentlyHoveredSong === song)
+		return index + 1;
+	}
+
 
 
 
@@ -86,7 +91,7 @@ class Album extends Component {
          			{
          				this.state.album.songs.map( (song, index) =>
 							 <tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
-							 	<td onMouseEnter={() => this.setHoveredSong(song)}>{this.showButtons(song, index)}</td>
+							 	<td onMouseEnter={() => this.setHoveredSong(song)} onMouseLeave={ () => this.hideButtons(song, index) }>{this.showButtons(song, index)}</td>
 								<td>{song.title}</td>
 							 	<td>{song.duration}</td>
 							 </tr>
