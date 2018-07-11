@@ -53,9 +53,11 @@ class Album extends Component {
 
 	showButtons(song, index) {
 		 if (this.state.currentlyHoveredSong === song || (this.state.isPlaying === false && this.state.currentlyHoveredSong === song)) {
-		 	return index + 1 <span className="icon ion-md-play"></span>;
-		} else if(this.state.currentlyHoveredSong === song && this.state.isPlaying === true) {
-			return  index + 1 <span className="icon ion-md-pause"></span>;
+		 	return  <span className="icon ion-md-play"></span>;
+		} else if (this.state.isPlaying === true && this.state.currentSong === song) {
+			return  <span className="icon ion-md-pause"></span>;
+		} else {
+			return index + 1;
 		}
 	}
 
