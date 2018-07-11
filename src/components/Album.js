@@ -41,6 +41,10 @@ class Album extends Component {
 		this.setState({ currentlyHoveredSong: song });
 	}
 
+	setNotHoveredSong(song) {
+		this.setState({ currentlyHoveredSong: null})
+	}
+
 	handleSongClick(song) {
 		const isSameSong = this.state.currentSong === song;
 		if (this.state.isPlaying && isSameSong) {
@@ -91,7 +95,7 @@ class Album extends Component {
          			{
          				this.state.album.songs.map( (song, index) =>
 							 <tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
-							 	<td onMouseEnter={() => this.setHoveredSong(song)} onMouseLeave={ () => this.hideButtons(song, index) }>{this.showButtons(song, index)}</td>
+							 	<td onMouseEnter={() => this.setHoveredSong(song)} onMouseLeave={ () => this.setNotHoveredSong(song)}>{this.showButtons(song, index)} {this.hideButtons(song, index)}</td>
 								<td>{song.title}</td>
 							 	<td>{song.duration}</td>
 							 </tr>
