@@ -45,9 +45,13 @@ class Album extends Component {
 		}
 	}
 
-	showPlayButton(song) {
-		if(this.state.isHovered === song) {
-			<span className="icon ion-md-play"></span>
+	showButtons(song) {
+		if(this.state.isHovered === song && !this.state.isPlaying) {
+			return	<span className="icon ion-md-play"></span>
+		} else if (this.state.isHovered === song && this.state.isPlaying) {
+			return <span className="icon ion-md-pause"></span>
+		} else {
+			return <span className="icon ion-md-play>"></span>
 		}
 	}
 
@@ -74,7 +78,7 @@ class Album extends Component {
          			<tbody>
          			{
          				this.state.album.songs.map( (song, index) =>
-							 <tr className="song" key={index} onClick={() => this.handleSongClick(song)} onMouseEnter{ () => showPlayButton(song)}>
+							 <tr className="song" key={index} onClick={() => this.handleSongClick(song)} onMouseEnter{ () => showButtons(song)}>
 							 	<td>{index + 1}</td>
 								<td>{song.title}</td>
 							 	<td>{song.duration}</td>
