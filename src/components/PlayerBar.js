@@ -38,6 +38,7 @@ class PlayerBar extends Component {
 					max="1"
 					min="0"
 					step="0.01"
+					onChange={this.props.handleVolumeChange}
 					/>
 					<div className="icon ion-md-volume-high"></div>
 				</section>
