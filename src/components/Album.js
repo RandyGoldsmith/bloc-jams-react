@@ -130,8 +130,19 @@ class Album extends Component {
 	}
 
 	formatTime(time) {
-
-	}
+		//start with a time in seconds,
+		//end with a time converted into a string as M:SS
+		if (isNaN(time)) {
+			return "-:--"
+		}
+		const minutes = Math.floor(time / 60);
+		const seconds = Math.floor(time % 60);
+		if (seconds < 10) {
+			return minutes.toString() + ':0' + seconds.toString();
+		} else {
+			return minutes.toString() + ':' + seconds.toString();
+			} 
+		}
 
 
 
@@ -159,7 +170,7 @@ class Album extends Component {
 							 <tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
 							 	<td onMouseEnter={() => this.setHoveredSong(song)} onMouseLeave={ () => this.setNotHoveredSong(song)}>{this.showButtons(song, index)} {this.hideButtons(song, index)}</td>
 								<td>{song.title}</td>
-							 	<td>{song.duration}</td>
+							 	<td>{this.formatTime(song.duration)}</td>
 							 </tr>
 						)
          			}
@@ -176,6 +187,7 @@ class Album extends Component {
          			handleNextClick={ () => this.handleNextClick()}
          			handleTimeChange={ (e) => this.handleTimeChange(e)}
          			handleVolumeChange={ (e) => this.handleVolumeChange(e)}
+         			formatTime={ (e) => this.formatTime(e)}
          		/>
 			</section>
 		);
