@@ -1,0 +1,25 @@
+.image-headphones {
+	width: 100%;
+	height: auto;
+}
+
+.icon {
+	font-size: 6rem;
+	color: #1B9EE8;
+}
+
+body {
+	background-color: #9929FF;
+}
+
+.hero-title {
+	color: white;
+}
+
+.point-title {
+	color: white;
+}
+
+.point-description {
+	color: white;
+}
