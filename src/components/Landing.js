@@ -5,8 +5,7 @@ import './Landing.css';
 const Landing = () => (
 	<section className="landing">
 		<div className="image-wrapper">
-			<img src= "https://i2.wp.com/www.audioschurke.de/wp-content/uploads/2018/06/kopfh%C3%B6rer_header.jpg?fit=1920%2C1279&ssl=1" alt="A women wearing headphones" className='image-headphones' />
-		 		<h1 className="hero-title">Turn the music up!</h1>
+		 	<h1 className="hero-title">Turn the music up!</h1>
 		</div>
 		<section className="selling-points">
 			<div className="container-points">
