@@ -1,16 +1,16 @@
 .image-headphones {
 	width: 100%;
-	max-height: 700px;
 }
 
 .image-wrapper {
 	background-image: url('https://i2.wp.com/www.audioschurke.de/wp-content/uploads/2018/06/kopfh%C3%B6rer_header.jpg?fit=1920%2C1279&ssl=1');
-	background-size: contain;
+	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
-	width: 100%;
+	width: 100% !important;
 	height: 300px;
-	
+	display: flex;
+	justify-content: center;
 }
 
 .icon {
@@ -35,8 +35,10 @@ body {
 }
 
 .hero-title {
-	text-align: center;
 	color: white;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
 }
 
 
