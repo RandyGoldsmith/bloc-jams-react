@@ -28,6 +28,18 @@
 }
 
 .bloc-jams-title {
-  text-align: left;
-  color: #3A6C90;
+  color: #1B9EE8;
+  text-decoration: none;
 }
+
+.albums-title {
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0;
+}
+
